@@ -1,0 +1,72 @@
+{
+  "name": "london-rent-tracker",
+  "version": "0.0.1",
+  "description": "Explore Londons rent prices",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run watch & npm run browser:sync",
+    "watch": "npm run watch:css & npm run watch:js",
+    "serve": "babel-node ./server/app.js",
+    "serve:prod": "npm run build:prod && npm run serve",
+    "build:prod": "npm run build:css && npm run postCSS && npm run build:js && npm run uglify:js && npm run copy:sw",
+    "copy:sw": "cp app/js/modules/service-worker.js public/js",
+    "browser:sync": "browser-sync start --server 'public' --files 'public/css/*.css'",
+    "build:css": "node-sass app/scss/ -o public/css",
+    "build:js": "NODE_ENV=production node ./node_tasks/build.js",
+    "uglify:js": "uglifyjs  public/js/app.js --output public/js/app.min.js",
+    "watch:css": "watch 'npm run build:css' app/scss",
+    "postCSS": "postcss -u autoprefixer cssnano -r public/css/*",
+    "watch:js": "NODE_ENV=development node ./node_tasks/watch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srsholmes/color-word.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srsholmes/color-word/issues"
+  },
+  "homepage": "https://github.com/srsholmes/color-word#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "babel": "^6.5.2",
+    "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.0",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.12.3",
+    "browserify": "^13.0.0",
+    "colors": "^1.1.2",
+    "cssnano": "^3.6.2",
+    "envify": "^3.4.0",
+    "http-server": "^0.9.0",
+    "livereactload": "^2.2.3",
+    "node-sass": "^3.4.2",
+    "postcss-cli": "^2.5.2",
+    "react-proxy": "^1.1.8",
+    "redux-logger": "^2.6.1",
+    "sw-precache": "^3.2.0",
+    "uglifyify": "^3.0.1",
+    "watch": "^0.17.1",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-core": "^6.9.0",
+    "babel-polyfill": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "material-design-lite": "^1.1.3",
+    "ramda": "^0.21.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-redux": "^4.4.5",
+    "redux": "^3.3.1",
+    "sw-toolbox": "^3.1.1",
+    "whatwg-fetch": "^0.9.0"
+  }
+}
