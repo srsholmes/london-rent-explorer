@@ -1,5 +1,5 @@
-const LOCAL_STORAGE_KEY = `tubeHacks`;
-
+const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
+console.log('GOOGLE_API_KEY', GOOGLE_API_KEY)
 module.exports = {
-  LOCAL_STORAGE_KEY: LOCAL_STORAGE_KEY,
+  GOOGLE_API_KEY: GOOGLE_API_KEY,
 };

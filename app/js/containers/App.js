@@ -1,22 +1,14 @@
 import React, { Component } from 'react'
-import { ReactComponent, Counter } from '../components';
-import PureComponent from '../components/PureComponent';
-const Pure = PureComponent(React);
- 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../actions/actions';
+import MapContainer from '../components/MapContainer'
 
 export default class App extends Component {
   render(){
-    console.log(this.props);
-    const { changeHeading } = this.props;
     return (
       <div>
-        <h1 onClick={changeHeading}>{this.props.heading}</h1>
-        <ReactComponent/>
-        <Pure/>
-        <Counter {...this.props}/>
+        <MapContainer/>
       </div>
     )
   }
@@ -24,7 +16,6 @@ export default class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter,
     heading: state.heading
   };
 };

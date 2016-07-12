@@ -1,2 +1,1 @@
-export { ReactComponent } from './ReactComponent.jsx';
-export { Counter } from './Counter.jsx';
+export { Map } from './Map'

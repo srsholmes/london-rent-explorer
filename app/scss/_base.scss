@@ -16,19 +16,23 @@ html, body {
 body {
 	
 }
-
-[app] {
-	width: 80%;
-	height: 100%;
-	margin: auto;
-	text-align: center;
-	padding-bottom: 5%;
-	padding-top: 5%;
-	max-width: 1000px;
-	overflow: hidden;
-  @media (max-width: $screen-sm-min) {
-		max-width: 100%;
-		width: 100%;
-		height: auto;
-	}
+.map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
+//[app] {
+//	width: 80%;
+//	height: 100%;
+//	margin: auto;
+//	text-align: center;
+//	padding-bottom: 5%;
+//	padding-top: 5%;
+//	max-width: 1000px;
+//	overflow: hidden;
+//  @media (max-width: $screen-sm-min) {
+//		max-width: 100%;
+//		width: 100%;
+//		height: auto;
+//	}
+//}
