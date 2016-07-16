@@ -1,26 +1,19 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
 import {ScriptCache} from '../modules/ScriptCache'
 import {GoogleApi} from '../modules/googleApi'
 
-const defaultMapConfig = {}
-const defaultCreateCache = (options) => {
-  options = options || {};
-  const apiKey = options.apiKey;
-  const libraries = options.libraries || ['places'];
-  return ScriptCache({
-    google: GoogleApi({apiKey: apiKey, libraries: libraries})
+const createCache = options =>
+  ScriptCache({
+    google: GoogleApi({
+      apiKey: options.apiKey,
+      libraries: options.libraries || ['places']
+    })
   });
-};
 
 export const wrapper = (options) => (WrappedComponent) => {
-  const apiKey = options.apiKey;
-  const libraries = options.libraries || ['places'];
-  const createCache = options.createCache || defaultCreateCache;
-
   class Wrapper extends React.Component {
     constructor(props, context) {
       super(props, context);
-
       this.scriptCache = createCache(options);
       this.scriptCache.google.onLoad(this.onLoad.bind(this))
 
